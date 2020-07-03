@@ -64,6 +64,70 @@ class PublisherApi
      */
     private $price;
     /**
+     * @var string|null
+     */
+    private $first_name;
+    /**
+     * @var string|null
+     */
+    private $last_name;
+    /**
+     * @var string|null
+     */
+    private $browser_locale;
+    /**
+     * @var string|null
+     */
+    private $state;
+    /**
+     * @var string|null
+     */
+    private $city;
+    /**
+     * @var string|null
+     */
+    private $zip_code;
+    /**
+     * @var string|null
+     */
+    private $email;
+    /**
+     * @var string|null
+     */
+    private $comment;
+    /**
+     * @var string|null
+     */
+    private $size;
+    /**
+     * @var string|null
+     */
+    private $quantity;
+    /**
+     * @var string|null
+     */
+    private $password;
+    /**
+     * @var string|null
+     */
+    private $language_code;
+    /**
+     * @var string|null
+     */
+    private $tz_name;
+    /**
+     * @var string|null
+     */
+    private $call_time_frame;
+    /**
+     * @var string|null
+     */
+    private $messenger_code;
+    /**
+     * @var string|null
+     */
+    private $sale_code;
+    /**
      * @var string
      */
     private $log_file_path = '';
@@ -151,6 +215,22 @@ class PublisherApi
             'address' => $this->getAddress(),
             'price' => $this->getPrice(),
             'custom' => isset($_REQUEST['custom']) && is_array($_REQUEST['custom']) ? $_REQUEST['custom'] : array(),
+            'first_name' => $this->getFirstName(),
+            'last_name' => $this->getLastName(),
+            'browser_locale' => $this->getBrowserLocale(),
+            'state' => $this->getState(),
+            'city' => $this->getCity(),
+            'zip_code' => $this->getZipCode(),
+            'email' => $this->getEmail(),
+            'comment' => $this->getComment(),
+            'size' => $this->getSize(),
+            'quantity' => $this->getQuantity(),
+            'password' => $this->getPassword(),
+            'language_code' => $this->getLanguageCode(),
+            'tz_name' => $this->getTzName(),
+            'call_time_frame' => $this->getCallTimeFrame(),
+            'messenger_code' => $this->getMessengerCode(),
+            'sale_code' => $this->getSaleCode(),
         );
     }
 
@@ -217,6 +297,165 @@ class PublisherApi
     public function setClickid($clickid)
     {
         $this->clickid = $clickid;
+    }
+
+    public function getFirstName()
+    {
+        return is_null($this->first_name) ? '' : $this->first_name;
+    }
+
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+    }
+
+    public function getLastName()
+    {
+        return is_null($this->last_name) ? '' : $this->last_name;
+    }
+
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+    }
+
+    public function getBrowserLocale()
+    {
+        if (empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            return '';
+        }
+
+        return substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    }
+
+    public function getState()
+    {
+        return is_null($this->state) ? '' : $this->state;
+    }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    public function getCity()
+    {
+        return is_null($this->city) ? '' : $this->city;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function getZipCode()
+    {
+        return is_null($this->zip_code) ? '' : $this->zip_code;
+    }
+
+    public function setZipCode($zip_code)
+    {
+        $this->zip_code = $zip_code;
+    }
+
+    public function getEmail()
+    {
+        return is_null($this->email) ? '' : $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getComment()
+    {
+        return is_null($this->comment) ? '' : $this->comment;
+    }
+
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    public function getSize()
+    {
+        return is_null($this->size) ? '' : $this->size;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
+
+    public function getQuantity()
+    {
+        return is_null($this->quantity) ? '' : $this->quantity;
+    }
+
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function getPassword()
+    {
+        return is_null($this->password) ? '' : $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function getLanguageCode()
+    {
+        return is_null($this->language_code) ? '' : $this->language_code;
+    }
+
+    public function setLanguageCode($language_code)
+    {
+        $this->language_code = $language_code;
+    }
+
+    public function getTzName()
+    {
+        return is_null($this->tz_name) ? '' : $this->tz_name;
+    }
+
+    public function setTzName($tz_name)
+    {
+        $this->tz_name = $tz_name;
+    }
+
+    public function getCallTimeFrame()
+    {
+        return is_null($this->call_time_frame) ? '' : $this->call_time_frame;
+    }
+
+    public function setCallTimeFrame($call_time_frame)
+    {
+        $this->call_time_frame = $call_time_frame;
+    }
+
+    public function getMessengerCode()
+    {
+        return is_null($this->messenger_code) ? '' : $this->messenger_code;
+    }
+
+    public function setMessengerCode($messenger_code)
+    {
+        $this->messenger_code = $messenger_code;
+    }
+
+    public function getSaleCode()
+    {
+        return is_null($this->sale_code) ? '' : $this->sale_code;
+    }
+
+    public function setSaleCode($sale_code)
+    {
+        $this->sale_code = $sale_code;
     }
 
     public function getIp()
